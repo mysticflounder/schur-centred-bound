@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite the paper as below."
+title: "Schur numbers from triangle Ramsey numbers: a centred bound and its frontier"
+authors:
+  - family-names: McKenna
+    given-names: Adam
+repository-code: "https://github.com/mysticflounder/schur-centred-bound"
+license: Apache-2.0
+keywords:
+  - Schur numbers
+  - sumfree sets
+  - Ramsey numbers
+  - Lean 4
+preferred-citation:
+  type: article
+  title: "Schur numbers from triangle Ramsey numbers: a centred bound and its frontier"
+  authors:
+    - family-names: McKenna
+      given-names: Adam
+  year: 2026

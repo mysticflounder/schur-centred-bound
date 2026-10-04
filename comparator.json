@@ -1,0 +1,21 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "ClassicalSchur.triangleRamsey_succ",
+    "ClassicalSchur.not_coveredBySumFree_Icc_of_triangleRamsey",
+    "ClassicalSchur.not_coveredBySumFree_Icc_fourteen_three",
+    "ClassicalSchur.not_coveredBySumFree_Icc_six_of_triangleRamsey_four_sixtyOne",
+    "ClassicalSchur.coveredBySumFree_of_schurColoring",
+    "ClassicalSchur.exists_schurColoring_of_coveredBySumFree",
+    "ClassicalSchur.card_filter_Icc_eq_of_frontier",
+    "ClassicalSchur.card_centralNbhd_of_frontier",
+    "ClassicalSchur.card_colorNbhd_centralNbhd_of_frontier",
+    "ClassicalSchur.color_eq_of_card_filter_eq",
+    "ClassicalSchur.color_reflect_of_frontier",
+    "ClassicalSchur.endpointNbhd_of_frontier",
+    "ClassicalSchur.even_of_frontier",
+    "ClassicalSchur.schur_six_frontier_structure"
+  ],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}

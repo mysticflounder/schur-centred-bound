@@ -1,0 +1,176 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Schur numbers from triangle Ramsey numbers: a centred bound and its frontier"
+  description: >-
+    A Lean 4 formalization, with Mathlib, of an upper bound for the Schur
+    numbers in terms of the triangle Ramsey numbers, and of the structure of a
+    colouring at the limit of that bound. If every colouring with k colours of
+    the pairs of r points has a monochromatic triangle (R_k(3) ≤ r), then the
+    interval [1, 2((k + 1)⌊(r − 1)/2⌋ + 1)] is not covered by k + 1 sumfree
+    sets, so S(k + 1) ≤ 2(k + 1)⌊(r − 1)/2⌋ + 1. With R_2(3) ≤ 6 this gives
+    S(3) ≤ 13, which is exact. Under the hypothesis R_4(3) ≤ 61, a
+    computer-assisted claim of M. Tatarevic that this project does not prove,
+    the pigeonhole step gives R_5(3) ≤ 302, and the bound then gives
+    S(6) ≤ 1801; the hypothesis is an explicit argument (TriangleRamsey 4 61)
+    of each theorem that uses it. The frontier theorems describe a Schur
+    colouring of the largest interval that the bound allows. Let
+    R_k(3) ≤ u + 1, (k + 1)u = 2t and m = (k + 2)t, and let c be a Schur
+    colouring of [1, 2m + 1] with k + 2 colours. Then each colour occurs
+    exactly t times in [1, m]; with q = c(m + 1), the neighbourhood of the
+    centre m in the colour q is regular in every other colour; and
+    c(m + 1 − d) = c(m + 1 + d) for every d in [1, m] with c(d) = q. For six
+    colours under R_4(3) ≤ 61, a Schur colouring of [1, 1801] gives five sets
+    of 60 points, each closed under x ↦ 1800 − x with no fixed point and with
+    differences in at most four colours. These theorems do not exclude such a
+    colouring and do not prove S(6) ≤ 1800. The arguments for the bound and
+    for the frontier were first proposed by AI agents based on ChatGPT
+    (OpenAI) in a project discussion. A Claude agent (Anthropic) audited the
+    argument for the bound; the AI system Claude checked each step of the
+    frontier argument, restated it with explicit hypotheses, and wrote all
+    Lean proofs, under the direction of the author. The results have not been
+    peer reviewed.
+  authors:
+    - "Adam McKenna"
+  responsible_maintainers:
+    - "Adam McKenna"
+  license: "Apache-2.0"
+
+classification:
+  arxiv: ["math.CO"]
+  msc2020: ["05D10", "11B75", "05C55"]
+
+sources:
+  - title: "Schur numbers from triangle Ramsey numbers: a centred bound and its frontier (paper in this repository, paper/schur-centred-bound.md)"
+    authors: ["Adam McKenna"]
+    type: original-proof
+    relationship: other
+    note: >-
+      No earlier statement of S(6) ≤ 1801 under R_4(3) ≤ 61, of the centred
+      bound in this form, or of the frontier theorems was found in the
+      sources that were read. The method of the centred bound is probably not
+      new. The zbMATH summary of Wan (J. Graph Theory 26 (1997) 119–122) gives
+      a Schur bound S_n for even n ≥ 6 and does not define S_n. If S_n is the
+      largest N (as here), the summary gives S(6) ≤ 1922, 1 above the value
+      1921 that the centred bound gives from Wan's own R_5(3) ≤ 322. If S_n
+      is the least N such that every colouring has a monochromatic solution,
+      the summary gives S(6) ≤ 1921, and the two bounds agree for every even
+      n from 6 to 30. The abstract of Li Huai'en (J. Zhengzhou Univ. (Sci.)
+      1992) gives an R_n(3) bound and says that the paper also lowers the
+      Schur-number bounds; it gives no Schur value. Neither full text was
+      read. The literature check is recorded in the paper.
+  - title: "An improved upper bound for the Ramsey number R(3,3,3,3)"
+    authors: ["Milos Tatarevic"]
+    id: "https://github.com/milostatarevic/r3333-upper-bound/commit/ddd7755476db3f0751181db0daec75342576cdd1"
+    type: other
+    relationship: background
+    note: >-
+      Source of the claim R_4(3) ≤ 61. Here it is only the hypothesis
+      TriangleRamsey 4 61 of some theorems; this project does not prove it or
+      import its development.
+  - title: "The Schur degree of additive sets"
+    authors: ["Shalom Eliahou", "M. P. Revuelta"]
+    id: "https://doi.org/10.1016/j.disc.2021.112332"
+    type: paper
+    relationship: background
+    note: "Source of the definitions of sumfree sets and covers used here."
+  - title: "Upper bounds for Ramsey numbers R(3, 3, …, 3) and Schur numbers"
+    authors: ["Honghui Wan"]
+    id: "https://doi.org/10.1002/(SICI)1097-0118(199711)26:3<119::AID-JGT1>3.0.CO;2-U"
+    type: paper
+    relationship: background
+    note: >-
+      Not read: only the zbMATH summary (0882.05095) was available. The
+      summary gives a Schur bound S_n for even n ≥ 6 and does not define S_n.
+      If S_n is the largest N, the bound is 1 above the centred bound applied
+      to Wan's own bound on R_{n−1}(3); if S_n is the least N such that every
+      colouring has a monochromatic solution, the two bounds agree for every
+      even n from 6 to 30. So Wan's bound may come from the argument of the
+      centred bound or from one of the same strength.
+  - title: "Li Huai'en, J. Zhengzhou Univ. (Sci.) 1992(4) 20–25"
+    type: paper
+    relationship: background
+    note: >-
+      Not read: only the abstract was available. The abstract gives the same
+      R_n(3) bound as Wan, by parity and pigeonhole, and says that the paper
+      also lowers the Schur-number bounds; it gives no Schur value.
+  - title: "Small Ramsey Numbers (dynamic survey DS1)"
+    authors: ["Stanisław P. Radziszowski"]
+    id: "https://doi.org/10.37236/21"
+    type: paper
+    relationship: background
+    note: "Known values and bounds for R_k(3) and S(n)."
+
+related_formalizations: []
+
+status:
+  scope: >-
+    Fourteen theorems are compared (comparator.json): the pigeonhole step
+    R_k(3) ≤ N ⟹ R_{k+1}(3) ≤ (k + 1)(N − 1) + 2, the centred bound, its cases
+    S(3) ≤ 13 and (under TriangleRamsey 4 61) S(6) ≤ 1801, the two bridges
+    between Schur colourings and covers by sumfree sets, and the frontier
+    theorems up to the six-colour structure theorem. R_4(3) ≤ 61 is not
+    proved; it is a hypothesis. S(6) ≤ 1800 is not proved.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+
+automation:
+  methods:
+    - method: agent
+      models: ["claude-opus-5-5"]
+      framework: "Claude Code"
+      tool_setup: >-
+        A Claude agent audited the argument for the centred bound: it rebuilt
+        each step and checked small cases exhaustively. Claude (Anthropic)
+        checked each step of the frontier argument, restated it with explicit
+        hypotheses, and wrote the Lean definitions and all Lean proofs. On 2
+        October 2026 an independent Claude agent rebuilt the Lean module of
+        the frontier, ran its axiom audit again, and checked its statements
+        and each step against the argument, including the example with
+        S(3) = 13. On 3 October 2026 another independent Claude agent checked
+        all 14 compared statements and all proofs of Sections 2 to 4 of the
+        paper against the Lean, and recomputed the numbers. The comparison of
+        the Challenge and Solution environments (the types and values of the 7
+        definitions and the types of the 14 theorems) was done by the Claude
+        session that wrote the repository, not by a separate agent.
+    - method: other
+      framework: "ChatGPT (OpenAI)"
+      tool_setup: >-
+        AI agents based on ChatGPT first wrote the argument for the centred
+        bound and proposed the argument for the frontier (balanced colour
+        classes, saturation, reflection, and the paired endpoint
+        neighbourhoods with the parity of u), in a project discussion. They
+        did not write the Lean code in this repository.
+  notes: >-
+    The author directed the work, chose the results to formalize and is
+    responsible for the repository.
+
+fidelity:
+  divergences: >-
+    Natural numbers are the ambient type. S(n) is not defined in Lean, so
+    each bound S(n) ≤ M is stated as
+    ¬ CoveredBySumFree (Set.Icc 1 (M + 1)) n. Colours are elements of Fin n.
+    A Schur colouring is a map on all of ℕ that is constrained only on
+    [1, N]. Distances use Nat.dist. Neighbourhoods are finite sets inside
+    {0, …, 2m + 1}. TriangleRamsey k N quantifies over colourings by natural
+    numbers from a set of at most k colours. The frontier theorems hold for
+    all natural k, u, t and are vacuous at k = 0 or u = 0, while the paper
+    assumes k, u, t ≥ 1. The paper, Section 6, lists all differences.
+
+review:
+  status: "agent-reviewed"
+  reviewers: []
+  notes: >-
+    The Lean kernel checks every proof. On 2 October 2026 an independent
+    Claude agent rebuilt the Lean module of the frontier, ran its axiom audit
+    again, and checked its statements and each step against the argument,
+    including the example with S(3) = 13. On 3 October 2026 another
+    independent Claude agent checked all 14 compared statements and all
+    proofs of Sections 2 to 4 of the paper against the Lean, and recomputed
+    the numbers. The comparison of the Challenge and Solution environments
+    (the types and values of the 7 definitions and the types of the 14
+    theorems) was done by the Claude session that wrote the repository, not
+    by a separate agent; the comparator run in CI is the formal check of it.
+    No human peer review.

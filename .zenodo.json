@@ -1,0 +1,18 @@
+{
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "title": "Schur numbers from triangle Ramsey numbers: a centred bound and its frontier",
+  "creators": [
+    {
+      "name": "McKenna, Adam"
+    }
+  ],
+  "description": "If every colouring with k colours of the pairs of r points has a monochromatic triangle (R_k(3) ≤ r), then [1, 2((k+1)⌊(r−1)/2⌋+1)] is not covered by k+1 sumfree sets, so S(k+1) ≤ 2(k+1)⌊(r−1)/2⌋+1. The method is probably not new: a Schur bound of H. Wan (1997) for even n may come from the same argument or from one of the same strength; Wan's proof was not read (see the paper, Section 5). With R_2(3) ≤ 6 this gives S(3) ≤ 13, which is exact. Under the hypothesis R_4(3) ≤ 61, a computer-assisted claim of M. Tatarevic that is not proved here, the pigeonhole step gives R_5(3) ≤ 302, and the bound then gives S(6) ≤ 1801. We then describe a Schur colouring of the largest interval that the bound allows. Let R_k(3) ≤ u+1, (k+1)u = 2t and m = (k+2)t, and let c be a Schur colouring of [1, 2m+1] with k+2 colours. Then each colour occurs exactly t times in [1, m]; with q = c(m+1), the neighbourhood of the centre m in the colour q is regular in every other colour; and c(m+1−d) = c(m+1+d) for every d in [1, m] with c(d) = q. For six colours under R_4(3) ≤ 61, a Schur colouring of [1, 1801] gives five sets of 60 points, each closed under x ↦ 1800 − x with no fixed point and with differences in at most four colours. These results do not exclude such a colouring and do not prove S(6) ≤ 1800. The following are formalized in Lean 4 with Mathlib: the pigeonhole step, the centred bound, its cases S(3) ≤ 13 and (under R_4(3) ≤ 61) S(6) ≤ 1801, the two bridges between Schur colourings and covers by sumfree sets, and the frontier theorems; the hypothesis R_4(3) ≤ 61 is an explicit argument of every theorem that uses it. Not formalized: the comparison bounds S(6) ≤ 1805, S(6) ≤ 1806 and S(6) ≤ 1836, the other rows of the table of values, two remarks, the numbers of the literature section, and the Ramsey bounds R_4(3) ≤ 62, R_4(3) ≤ 61 and R_5(3) ≤ 307. Use of AI: the arguments for the bound and for the frontier were first proposed by AI agents based on ChatGPT (OpenAI); Claude (Anthropic) audited or checked them, wrote the Lean definitions and proofs, and wrote the text with the author, under the direction of the author, who has checked the content and takes responsibility for it. The results have not been peer reviewed. This record contains the paper (PDF and Markdown source) and the Lean 4 formalization with its comparator configuration.",
+  "license": "apache-2.0",
+  "keywords": [
+    "Schur numbers",
+    "sumfree sets",
+    "Ramsey numbers",
+    "Lean 4"
+  ]
+}
