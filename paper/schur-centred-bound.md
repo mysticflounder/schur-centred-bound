@@ -514,6 +514,9 @@ Theorem 3.1, the argument of its proof, an upper bound for $S(6)$ below
   $S(5)\le 305$.
 - Eliahou and Fares [EF16]. It cites [Wan97] only for the bound on
   $R_n(3)$.
+- Myers [Mye15], a PhD thesis. It cites [Wan97] once, only for the
+  constant of the bound on $R_n(3)$, and it does not mention the Schur
+  bound of [Wan97].
 - Kościuszko [Kos25]. For another equation, it splits a colour
   neighbourhood of a vertex $v$ into the parts $v+A$ and $v-A$. It uses the
   larger part only in a lower bound for the independence number, and it
@@ -793,6 +796,9 @@ takes responsibility for it.
 - [MU21] L. de Moura, S. Ullrich, The Lean 4 theorem prover and programming
   language, in: Automated Deduction – CADE 28, Lecture Notes in Comput.
   Sci. 12699, Springer (2021), 625–635. doi:10.1007/978-3-030-79876-5_37.
+- [Mye15] K. J. Myers, Computational Advances in Rado Numbers, PhD thesis,
+  Rutgers, The State University of New Jersey (2015).
+  doi:10.7282/t3gh9ktt.
 - [Rad26] S. P. Radziszowski, Small Ramsey numbers, Electron. J. Combin.,
   Dynamic Survey DS1, revision 18 (2026). doi:10.37236/21.
 - [Sch16] I. Schur, Über die Kongruenz $x^m+y^m\equiv z^m \pmod p$,
