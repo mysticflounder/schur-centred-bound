@@ -1,6 +1,6 @@
 ---
-title: "Schur numbers from triangle Ramsey numbers: a centred bound and its frontier"
-title-meta: "Schur numbers from triangle Ramsey numbers: a centred bound and its frontier"
+title: '$S(6)\le 1801$ if $R_4(3)\le 61$: a centred Schur bound and the structure at the frontier'
+title-meta: "S(6) ≤ 1801 if R₄(3) ≤ 61: a centred Schur bound and the structure at the frontier"
 author: Adam McKenna
 date: "October 2026"
 abstract: |

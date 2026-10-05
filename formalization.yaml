@@ -2,7 +2,7 @@
 version: "v0.4"
 
 project:
-  name: "Schur numbers from triangle Ramsey numbers: a centred bound and its frontier"
+  name: "S(6) ≤ 1801 if R₄(3) ≤ 61: a centred Schur bound and the structure at the frontier"
   description: >-
     A Lean 4 formalization, with Mathlib, of an upper bound for the Schur
     numbers in terms of the triangle Ramsey numbers, and of the structure of a
@@ -42,7 +42,7 @@ classification:
   msc2020: ["05D10", "11B75", "05C55"]
 
 sources:
-  - title: "Schur numbers from triangle Ramsey numbers: a centred bound and its frontier (paper in this repository, paper/schur-centred-bound.md)"
+  - title: "S(6) ≤ 1801 if R₄(3) ≤ 61: a centred Schur bound and the structure at the frontier (paper in this repository, paper/schur-centred-bound.md)"
     authors: ["Adam McKenna"]
     type: original-proof
     relationship: other

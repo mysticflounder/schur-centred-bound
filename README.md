@@ -1,4 +1,4 @@
-# Schur numbers from triangle Ramsey numbers: a centred bound and its frontier
+# S(6) ≤ 1801 if R₄(3) ≤ 61: a centred Schur bound and the structure at the frontier
 
 This repository contains a paper by Adam McKenna (2026) and its Lean 4
 formalization.
