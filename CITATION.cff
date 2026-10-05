@@ -4,6 +4,14 @@ title: "S(6) ≤ 1801 if R₄(3) ≤ 61: a centred Schur bound and the structure
 authors:
   - family-names: McKenna
     given-names: Adam
+doi: 10.5281/zenodo.23156099
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23156099
+    description: "All versions (Zenodo concept DOI)"
+  - type: doi
+    value: 10.5281/zenodo.23156100
+    description: "Version 1.0.0"
 repository-code: "https://github.com/mysticflounder/schur-centred-bound"
 license: Apache-2.0
 keywords:
@@ -18,3 +26,4 @@ preferred-citation:
     - family-names: McKenna
       given-names: Adam
   year: 2026
+  doi: 10.5281/zenodo.23156099

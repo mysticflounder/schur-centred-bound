@@ -139,4 +139,9 @@ Apache License 2.0; see [LICENSE](LICENSE).
 
 ## Citation
 
-See [CITATION.cff](CITATION.cff).
+A. McKenna, *S(6) ≤ 1801 if R₄(3) ≤ 61: a centred Schur bound and the structure at the frontier*, 2026. Zenodo,
+doi:[10.5281/zenodo.23156099](https://doi.org/10.5281/zenodo.23156099).
+
+This DOI covers all versions. The DOI of version 1.0.0 is
+[10.5281/zenodo.23156100](https://doi.org/10.5281/zenodo.23156100).
+See also [CITATION.cff](CITATION.cff).

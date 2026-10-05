@@ -2,7 +2,7 @@
 title: '$S(6)\le 1801$ if $R_4(3)\le 61$: a centred Schur bound and the structure at the frontier'
 title-meta: "S(6) ≤ 1801 if R₄(3) ≤ 61: a centred Schur bound and the structure at the frontier"
 author: Adam McKenna
-date: "October 2026"
+date: "October 2026. doi:10.5281/zenodo.23156099"
 abstract: |
   Let $S(n)$ be the Schur number and $R_k(3)$ the Ramsey number of the
   triangle in $k$ colours. We prove that $R_k(3)\le r$ implies
