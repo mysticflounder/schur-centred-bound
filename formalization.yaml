@@ -42,11 +42,18 @@ classification:
   msc2020: ["05D10", "11B75", "05C55"]
 
 sources:
-  - title: "S(6) ≤ 1801 if R₄(3) ≤ 61: a centred Schur bound and the structure at the frontier (paper in this repository, paper/schur-centred-bound.md)"
+  - title: "S(6) ≤ 1801 if R₄(3) ≤ 61: a centred Schur bound and the structure at the frontier (preprint; paper/schur-centred-bound.md in this repository)"
     authors: ["Adam McKenna"]
-    type: original-proof
-    relationship: other
+    id: "https://doi.org/10.5281/zenodo.23156099"
+    type: paper
+    relationship: formalizes
     note: >-
+      The compared theorems formalize the centred bound (Theorem 3.1),
+      S(6) ≤ 1801 under R_4(3) ≤ 61 (Corollary 1.2(b)), the frontier
+      theorems of Section 4 up to Theorem 4.11, and the two bridges between
+      Schur colourings and covers by sumfree sets. The paper (a preprint on
+      Zenodo, without peer review) and the Lean formalization were written
+      together: both are in the first commit (2ca4ed0) of this repository.
       No earlier statement of S(6) ≤ 1801 under R_4(3) ≤ 61, of the centred
       bound in this form, or of the frontier theorems was found in the
       sources that were read. The method of the centred bound is probably not
@@ -60,6 +67,27 @@ sources:
       1992) gives an R_n(3) bound and says that the paper also lowers the
       Schur-number bounds; it gives no Schur value. Neither full text was
       read. The literature check is recorded in the paper.
+  - title: "Combinatorial relations and chromatic graphs"
+    authors: ["R. E. Greenwood", "A. M. Gleason"]
+    id: "https://doi.org/10.4153/CJM-1955-001-4"
+    type: paper
+    relationship: formalizes
+    note: >-
+      Canad. J. Math. 7 (1955) 1–7. The compared theorem triangleRamsey_succ
+      formalizes the pigeonhole step R_{k+1}(3) ≤ (k+1)(R_k(3) − 1) + 2
+      (Lemma 2.5 of the paper). This is the case k_1 = … = k_r = 3 of their
+      general upper bound, as the survey of Radziszowski (DS1, §6.2(a), below)
+      states it with the citation [GG]. The full text of this paper was not
+      read for this entry.
+  - title: "The value S(3) = 13"
+    type: folklore
+    relationship: independently-proves
+    note: >-
+      A classical value. The paper cites Heule (Schur number five, AAAI 2018)
+      for the fact that S(1), S(2) and S(3) can be found by hand. The compared
+      theorem not_coveredBySumFree_Icc_fourteen_three proves S(3) ≤ 13
+      (Corollary 3.2 of the paper) by the centred bound with R_2(3) = 6, not by
+      a search.
   - title: "An improved upper bound for the Ramsey number R(3,3,3,3)"
     authors: ["Milos Tatarevic"]
     id: "https://github.com/milostatarevic/r3333-upper-bound/commit/ddd7755476db3f0751181db0daec75342576cdd1"
@@ -79,9 +107,13 @@ sources:
     authors: ["Honghui Wan"]
     id: "https://doi.org/10.1002/(SICI)1097-0118(199711)26:3<119::AID-JGT1>3.0.CO;2-U"
     type: paper
-    relationship: background
+    relationship: other
     note: >-
-      Not read: only the zbMATH summary (0882.05095) was available. The
+      Not read: only the zbMATH summary (0882.05095) was available; the full
+      text was not reachable through the library or any open copy
+      (October 2026). If Wan's Schur bound comes from the argument of the
+      centred bound, the right relationship is independently-proves; without
+      the full text this cannot be decided, so this entry uses other. The
       summary gives a Schur bound S_n for even n ≥ 6 and does not define S_n.
       If S_n is the largest N, the bound is 1 above the centred bound applied
       to Wan's own bound on R_{n−1}(3); if S_n is the least N such that every
@@ -90,11 +122,13 @@ sources:
       centred bound or from one of the same strength.
   - title: "Li Huai'en, J. Zhengzhou Univ. (Sci.) 1992(4) 20–25"
     type: paper
-    relationship: background
+    relationship: other
     note: >-
       Not read: only the abstract was available. The abstract gives the same
       R_n(3) bound as Wan, by parity and pigeonhole, and says that the paper
-      also lowers the Schur-number bounds; it gives no Schur value.
+      also lowers the Schur-number bounds; it gives no Schur value. As for
+      Wan, it cannot be decided without the full text whether the paper proves
+      a bound of the strength of the centred bound, so this entry uses other.
   - title: "Small Ramsey Numbers (dynamic survey DS1)"
     authors: ["Stanisław P. Radziszowski"]
     id: "https://doi.org/10.37236/21"
