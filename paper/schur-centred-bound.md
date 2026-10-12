@@ -397,7 +397,8 @@ $\square$
 $d\in[1,m]$ with $c(d)=q$. Then $c(m+1-d)=c(m+1+d)$.
 
 **Proof.** Let $W=V\setminus\{N\}$, $e=N$, $J(x)=2m-x$, and
-$\mathrm{col}(x,y)=c(|x-y|)$. By Lemma 4.6, $J$ maps $W$ to $W$. It is an
+$\mathrm{col}(x,y)=c(|x-y|)$ for $x\ne y$; the pairs $(x,x)$ get one fixed
+colour and play no part. By Lemma 4.6, $J$ maps $W$ to $W$. It is an
 involution, and $|J(x)-J(y)|=|x-y|$, so it keeps the colours of all pairs
 in $W$. The point $v=m+d$ lies in $W$, since $v\ne m$,
 $c(|v-m|)=c(d)=q$ and $v\le 2m$; and $J(v)=m-d$. Here $W\cup\{e\}=V$. By Theorem 4.4, both $v$ and $J(v)$ have
@@ -588,9 +589,10 @@ v4.35.0-rc3. The library `ClassicalSchur` has four modules:
 
 - `Basic`: sumfree sets (`SumFree`) and covers by sumfree sets
   (`CoveredBySumFree`);
-- `Ramsey`: the statement `TriangleRamsey k N`, which is $R_k(3)\le N$,
-  and the pigeonhole bound $\rho(k)$ with $\rho(0)=2$ and
-  $\rho(k+1)=(k+1)(\rho(k)-1)+2$;
+- `Ramsey`: the statement `TriangleRamsey k N`, which is $R_k(3)\le N$;
+  the pigeonhole bound $\rho(k)$ (`ramseyBound`) with $\rho(0)=2$ and
+  $\rho(k+1)=(k+1)(\rho(k)-1)+2$; and the theorem $R_k(3)\le\rho(k)$ for
+  every natural $k$ (`triangleRamsey_ramseyBound`);
 - `SchurBound`: Lemma 2.5, Theorem 3.1 and Corollaries 3.2 and 3.3;
 - `Frontier`: Schur colourings, colour neighbourhoods, Lemmas 2.1 to 2.4,
   and Section 4.
@@ -603,9 +605,12 @@ the library, which proves the fourteen theorems under the same names. The
 file `comparator.json` lists the fourteen theorems and permits only the
 axioms `propext`, `Classical.choice` and `Quot.sound`. The script
 `scripts/verify-comparator.sh` runs `lake comparator` [LFRO], which is
-part of Lake in the Lean toolchain, on these three files: it compares each
-statement in `Solution.lean`, with the definitions that it uses, against
-`Challenge.lean`, and checks the axioms. The repository's continuous
+part of Lake in the Lean toolchain, on `Challenge.lean`, `Solution.lean`
+and a copy of `comparator.json`, to which it adds the kernels `nanoda_bin`
+and `con-ron` of the toolchain. The comparator compares each of the
+fourteen theorems, which `Solution.lean` imports from the library, with
+the definitions that it uses, against `Challenge.lean`, and checks the
+axioms. The repository's continuous
 integration runs this script. The fourteen theorems use no axioms other
 than `propext`, `Classical.choice` and `Quot.sound`.
 
@@ -648,20 +653,59 @@ fourteen compared theorems.
 | Corollary 4.10 | `even_of_frontier` $*$, `not_schurColoring_frontier_of_odd` |
 | Theorem 4.11 | `schur_six_frontier_structure` $*$ |
 
+The library has eight more public theorems, which have no number in this
+paper:
+
+- `triangleRamsey_ramseyBound` ($R_k(3)\le\rho(k)$ for every natural $k$),
+  `two_le_ramseyBound` ($\rho(k)\ge 2$), `ramseyBound_three` ($\rho(3)=17$)
+  and `ramseyBound_four` ($\rho(4)=66$);
+- `mem_colorNbhd` and `mem_centralNbhd`, which state when a point lies in
+  $\Gamma_i(v;V)$ and in the central neighbourhood;
+- `sum_card_colorNbhd`: the numbers $|\Gamma_i(v;V)|$, for all colours
+  $i$, have the sum $|V\setminus\{v\}|$. Section 2 states this as a
+  partition of $V\setminus\{v\}$;
+- `endpoint_mem_centralNbhd`: the endpoint $2m+1$ lies in the central
+  neighbourhood (Section 4.2).
+
+Four more theorems are private to the module `Frontier`. They are steps of
+the proofs of Lemma 2.2 and of Theorems 4.1, 4.3, 4.4 and 4.11.
+
 In Corollary 3.3 the bound $R_5(3)\le 302$ is the case $k=4$, $N=61$ of
-`triangleRamsey_succ`. In Corollary 3.2 the bound $R_2(3)\le 6$ is proved
-in Lean through $\rho(2)=6$. The following are not formalized: the rows of
-Table 1 other than Corollaries 3.2 and 3.3, the bounds $1805$, $1806$ and
-$1836$ of Section 3.3, Remarks 4.8 and 4.12, the numbers of Section 5, and the
-Ramsey bounds $R_4(3)\le 62$, $R_4(3)\le 61$ and $R_5(3)\le 307$.
+`triangleRamsey_succ`; the Lean theorem of Corollary 3.3 states only that
+$[1,1802]$ is not covered by six sumfree sets. In Corollary 3.2 the bound
+$R_2(3)\le 6$ is proved in Lean through $\rho(2)=6$ and
+`triangleRamsey_ramseyBound`. The following are not formalized:
+
+- the definition of $S(n)$ and the statements of Section 2 that connect
+  it with covers by sumfree sets;
+- the rows of Table 1 other than Corollaries 3.2 and 3.3;
+- the closed forms and the comparison of Section 3.2, and the same
+  comparison for even $r$ in the abstract;
+- the bounds $1805$, $1806$ and $1836$ of Section 3.3;
+- the cases $S(k+1)\le 2m+1$ and $S(k+2)\le 2m+1$ of Theorem 3.1 that
+  define the frontier interval (abstract and Sections 1, 4 and 4.2); they
+  are not stated as separate Lean theorems;
+- the values and bounds of $S(n)$ and $R_k(3)$ that we cite from the
+  literature, and with them the exactness of Corollary 3.2 and the
+  examples with three colours in Sections 4 and 4.2. Without a hypothesis,
+  Lean proves only the Ramsey bounds $R_k(3)\le\rho(k)$; it does not prove
+  $R_4(3)\le 62$, $R_4(3)\le 61$ or $R_5(3)\le 307$;
+- the statement of Section 4.2 that $0\in V$ when $c(m)=q$;
+- the paragraph after Theorem 4.11, and Remarks 4.8 and 4.12;
+- the numbers of Section 5;
+- the statements about vacuous cases in the list below.
 
 The Lean statements differ from the prose in the following ways.
 
-- The ambient type is $\mathbb{N}$. All sets are sets of natural numbers,
-  and $[1,N]$ is `Set.Icc 1 N`. Subtraction and division are those of
+- The ambient type is $\mathbb{N}$. All sets are sets of natural numbers.
+  In the statements about covers, $[1,N]$ is `Set.Icc 1 N`. In
+  Theorems 4.1 and 4.11 (a) the interval $[1,m]$ is `Finset.Icc 1 m`, and
+  $[0,N]$ is `Finset.range (N + 1)`. Subtraction and division are those of
   $\mathbb{N}$; for example, Theorem 3.1 is stated for
   `Set.Icc 1 (2 * ((k + 1) * ((r - 1) / 2) + 1))`, for all natural $k$
-  and $r$.
+  and $r$. Lemma 2.5 is stated for all natural $k$ and $N$, with the bound
+  `(k + 1) * (N - 1) + 2`, and Lemma 2.1 (a) for all natural $n$, while
+  the prose has $k,r,N,n\ge 1$.
 - A colouring with $n$ colours takes values in `Fin n`. In
   `TriangleRamsey k N` the vertices are natural numbers in a finite set of
   at least $N$ elements, only the pairs $x<y$ are coloured, and the colours
@@ -671,6 +715,9 @@ The Lean statements differ from the prose in the following ways.
 - A Schur colouring is a map from $\mathbb{N}$ to `Fin n`, defined on all
   of $\mathbb{N}$. Only its values on $[1,N]$ are constrained.
 - The distance $|x-y|$ is `Nat.dist x y`.
+- In Lemmas 2.3 and 2.4 the set $V\subseteq[0,N]$ is a `Finset` of natural
+  numbers with the hypothesis $x\le N$ for every $x\in V$. In Lemma 2.3
+  the set $K$ is a `Finset (Fin n)`.
 - Neighbourhoods are `Finset`s. The central neighbourhood `centralNbhd c m`
   is the colour-$c(m+1)$ neighbourhood of $m$ in
   $\{0,1,\dots,2m+1\}$, and `endpointNbhd c m i` is the colour-$i$
@@ -689,13 +736,22 @@ The Lean statements differ from the prose in the following ways.
   which is not among the compared theorems.
 - `color_eq_of_card_filter_eq` (Lemma 4.5) is stated for any types with
   decidable equality and a colouring of ordered pairs.
-- The frontier theorems take the hypotheses $2t=(k+1)u$ and $m=(k+2)t$ as
+- Theorem 4.1 takes the hypothesis $m=(k+1)t$ as an equation of natural
+  numbers, with colours in `Fin (k + 1)`. It holds in Lean for all natural
+  numbers $k$ and $t$, while Section 4 has $k,t\ge 1$. The added cases are
+  vacuous or trivial: for $t=0$ and $k\ge 1$ the hypothesis
+  `TriangleRamsey k 2` is false (take two points); for $k=0$ and $t\ge 1$
+  the interval $[1,2t+1]$ has no Schur colouring with one colour, since
+  $1+1=2$; and for $k=t=0$ the interval $[1,m]$ is empty.
+- The theorems of the frontier setting (Theorems 4.3, 4.4, 4.7 and 4.9 and
+  Corollary 4.10) take the hypotheses $2t=(k+1)u$ and $m=(k+2)t$ as
   equations of natural numbers, with colours in `Fin (k + 2)`. They hold
   in Lean for all natural numbers $k$, $u$ and $t$, while the prose has
   $k,u,t\ge 1$. The added cases are vacuous: for $u=0$ the hypothesis
-  `TriangleRamsey k 1` is false (take a single point), and for $k=0$ and
+  `TriangleRamsey k 1` is false (take a single point); for $k=0$ and
   $u\ge 1$ the hypotheses give $t\ge 1$ and $m=2t$, and $[1,2m+1]$ has no
-  Schur colouring with two colours, since $S(2)=4$.
+  Schur colouring with two colours, since $S(2)=4$; and for $t=0$ with
+  $k,u\ge 1$ the equation $2t=(k+1)u$ is false.
 
 **Data and code availability.** The Lean source, `Challenge.lean`,
 `Solution.lean` and `comparator.json` are in the repository that contains
@@ -723,7 +779,12 @@ the numbers. The comparison of `Challenge.lean` with `Solution.lean` (the
 types and values of the seven definitions and the types of the fourteen
 theorems) was done by the Claude session that wrote the repository, not
 by a separate agent; the comparator run in continuous integration is the
-formal check of it. The text of this paper was written with Claude
+formal check of it. On 11 October 2026 a Claude agent (model Claude
+Opus 5.5) compared this paper with the Lean library again and completed
+the lists of Section 6. An independent Claude agent then checked the
+paper against the library, and the five points that it found were
+corrected. No numbered statement changed. The text of this paper was
+written with Claude
 under the direction of the author. The author has checked the content and
 takes responsibility for it.
 
